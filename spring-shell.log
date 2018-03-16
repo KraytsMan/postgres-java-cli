@@ -1,0 +1,28 @@
+1521198014436:add 1 2
+1521198053688:exit
+1521198157179:help
+1521211029011:connect -host 172.17.0.1 -p
+1521211068511:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521211398484:connect -host 172.21.0.1 -port 5432 -uer root -password root
+1521211406055:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521219612969:show databases;
+1521219724537:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521219730129:show databases;
+1521220273526:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521220281153:show databases;
+1521220449862:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521220462560:show databases;
+1521221091128:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521221096299:use test
+1521221800484:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521221805721:use test
+1521221818725:show tables;
+1521222458290:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521222463542:use test
+1521222468439:show tables;
+1521222482430:show databases;
+1521222489379:use postgres
+1521222495790:show tables;
+1521222553226:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521222559766:use test
+1521222562929:show tables;
