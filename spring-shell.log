@@ -26,3 +26,55 @@
 1521222553226:connect -host 172.21.0.1 -port 5432 -user root -password root
 1521222559766:use test
 1521222562929:show tables;
+1521282908157:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521283358432:stacktrace
+1521283708237:connect -host 172.21.0.1 -port 5432 -user root -password
+1521283715793:stacktrace
+1521283727816:connect -host 172.21.0.1 -port 5432 -user root -password
+1521283840542:connect -host 172.21.0.1 -port 5432 -user root -password root
+1521285160986:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521285171749:show databases;
+1521285176827:use test
+1521285202129:query select * from accounts
+1521285229585:query 'select * from accounts;'
+1521285309421:query 'select * from accounts where name=Kraytsman;'
+1521285317031:query 'select * from accounts;'
+1521285329005:query 'select * from accounts where accounts.name=Kraytsman;'
+1521285470567:query "select * from accounts where accounts.name='Kraytsman';"
+1521285697996:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521285706333:show databases;
+1521285920554:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521285926215:show databases;
+1521285970673:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521285976867:show databases;
+1521286026679:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521286062346:show databases;
+1521286161035:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521286166452:show databases;
+1521286332790:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521286339589:show databases;
+1521286696910:connect -host 172.17.0.1 -port 5432 -user root -password roo
+1521286705729:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521286710537:show databases;
+1521286785047:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521286800226:show databases;
+1521287259950:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521287267950:show databases;
+1521287282084:use test;
+1521287293428:use test
+1521287300501:show tables;
+1521287338550:query "select * from accounts where accounts.name='Kraytsman';"
+1521287822679:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521287832741:show databases;
+1521287835245:show databases
+1521287846523:use test
+1521287856242:show tables
+1521288060458:exit
+1521288077220:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521288089024:show datadases
+1521288098956:show datadases;
+1521288108348:show databases
+1521288113023:use test
+1521288122364:show tables
+1521288142701:query "select * from accounts where accounts.name='Kraytsman';"
+1521288149982:query "select * from accounts;"

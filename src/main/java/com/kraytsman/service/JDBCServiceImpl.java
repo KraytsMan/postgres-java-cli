@@ -13,8 +13,8 @@ import static java.lang.String.format;
 @Service
 public class JDBCServiceImpl implements JDBCService {
 
-    private static final String GET_DBS_SQL = "SELECT datname AS DATABASE FROM pg_database WHERE datistemplate = FALSE;";
-    private static final String GET_DBS_TABLES_SQL = "SELECT table_name AS TABLE FROM information_schema.tables;";
+    private static final String GET_DBS_SQL = "SELECT * FROM pg_database WHERE datistemplate = FALSE;";
+    private static final String GET_DBS_TABLES_SQL = "SELECT table_catalog, table_schema, table_name, table_type FROM information_schema.tables;";
 
     private static final String DEFAULT_DB = "postgres";
 
@@ -43,12 +43,7 @@ public class JDBCServiceImpl implements JDBCService {
 
     @Override
     public String[][] showTables() throws SQLException {
-        State state = getState();
-        Connection connection = getConnection(state.getCurrentDatabase());
-        PreparedStatement preparedStatement = connection.prepareStatement(GET_DBS_TABLES_SQL);
-        String[][] data = parse(preparedStatement.executeQuery());
-        connection.close();
-        return data;
+        return executeRequest(GET_DBS_TABLES_SQL);
     }
 
     @Override
@@ -62,6 +57,20 @@ public class JDBCServiceImpl implements JDBCService {
         } catch (Exception e) {
             throw new PostgresConnectionException(e.getMessage());
         }
+    }
+
+    @Override
+    public String[][] query(String query) throws SQLException {
+        return executeRequest(query);
+    }
+
+    private String[][] executeRequest(String query) throws SQLException {
+        State state = getState();
+        Connection connection = getConnection(state.getCurrentDatabase());
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        String[][] data = parse(preparedStatement.executeQuery());
+        connection.close();
+        return data;
     }
 
     private String getUrl(String host, String port, String db) {
@@ -82,13 +91,20 @@ public class JDBCServiceImpl implements JDBCService {
             header.add(metaData.getColumnName(i));
         }
         temp.add(header);
+
         while (set.next()) {
             List<String> row = new ArrayList<>();
             for (int i = 1; i <= metaData.getColumnCount(); i++) {
-                row.add(set.getString(i));
+                String string = set.getString(i);
+                if ((string == null)) {
+                    row.add("null");
+                } else {
+                    row.add(string);
+                }
             }
             temp.add(row);
         }
+
         String[][] result = new String[temp.size()][metaData.getColumnCount()];
         for (int i = 0; i < temp.size(); i++) {
             result[i] = temp.get(i).toArray(new String[0]);

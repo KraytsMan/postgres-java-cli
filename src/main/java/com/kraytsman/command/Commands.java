@@ -20,11 +20,6 @@ public class Commands {
         this.jdbcService = jdbcService;
     }
 
-    @ShellMethod("Add two integers together.")
-    public int add(int a, int b) {
-        return a + b;
-    }
-
     @ShellMethod("Connect to postgres database")
     public String connect(@ShellOption(value = "-host") String host,
                           @ShellOption(value = "-port") String port,
@@ -38,7 +33,7 @@ public class Commands {
         }
     }
 
-    @ShellMethod(value = "Print list of databases", key = "show databases;")
+    @ShellMethod(value = "Print list of databases", key = "show databases")
     public void showDatabases() {
         try {
             display(this.jdbcService.showDatabases());
@@ -47,7 +42,7 @@ public class Commands {
         }
     }
 
-    @ShellMethod(value = "Print list of tables in database", key = "show tables;")
+    @ShellMethod(value = "Print list of tables in database", key = "show tables")
     public void showTables() {
         try {
             display(this.jdbcService.showTables());
@@ -61,6 +56,15 @@ public class Commands {
         try {
             this.jdbcService.switchDB(database);
             System.out.println(database + " is using!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @ShellMethod(value = "Execute sql query")
+    public void query(String query) {
+        try {
+            display(this.jdbcService.query(query));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

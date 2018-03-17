@@ -12,4 +12,6 @@ public interface JDBCService {
 
     void switchDB(String dbname);
 
+    String[][] query(String query) throws SQLException;
+
 }
