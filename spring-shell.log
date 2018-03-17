@@ -78,3 +78,22 @@
 1521288122364:show tables
 1521288142701:query "select * from accounts where accounts.name='Kraytsman';"
 1521288149982:query "select * from accounts;"
+1521315424806:help
+1521315461960:show databases
+1521315584948:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521315595755:show datadases
+1521315607753:show databases
+1521315618338:use test
+1521315624939:show tables
+1521315634893:query "select * from accounts where accounts.name='Kraytsman';"
+1521316438680:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521316445618:disconnect
+1521316454285:show databases
+1521316899113:### Connection
+1521316929994:disconnect
+1521316940532:connect -host 172.17.0.1 -port 5432 -user root -password root
+1521316948978:show databases
+1521317220231:use test
+1521317224798:show tables
+1521317372003:query "select * from accounts;"
+1521317455387:query "select * from accounts where accounts.name='Kraytsman';"

@@ -1,6 +1,6 @@
 package com.kraytsman.service;
 
-public class State {
+class State {
 
     private final String host;
 
@@ -12,7 +12,7 @@ public class State {
 
     private String currentDatabase;
 
-    public State(String host, String port, String username, String password) {
+    State(String host, String port, String username, String password) {
         this.host = host;
         this.port = port;
         this.username = username;

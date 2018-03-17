@@ -1,17 +1,16 @@
 package com.kraytsman.service;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface JDBCService {
 
-    void connect(String host, String port, String username, String password);
+    ResultSet showDatabases() throws SQLException;
 
-    String[][] showDatabases() throws SQLException;
-
-    String[][] showTables() throws SQLException;
+    ResultSet showTables() throws SQLException;
 
     void switchDB(String dbname);
 
-    String[][] query(String query) throws SQLException;
+    ResultSet query(String query) throws SQLException;
 
 }
